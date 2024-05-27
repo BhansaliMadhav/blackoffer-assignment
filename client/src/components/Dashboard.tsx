@@ -13,7 +13,6 @@ export default function Dashboard({
   dataForFilter: DataPoint[];
   setData: (data: DataPoint[]) => void;
 }) {
-  // Filtering
   const topics = Array.from(
     new Set(
       dataForFilter
@@ -89,24 +88,24 @@ export default function Dashboard({
   const swotsName = ["Strengths", "Weaknesses", "Opportunities", "Threats"];
 
   return (
-    <div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 py-4">
-        <KeyMetrics
-          {...{
-            topics,
-            sectors,
-            regions,
-            counties,
-            cities,
-            pests,
-            sources,
-            swots,
-            swotsName,
-            data,
-            dataForFilter,
-          }}
-          setData={setData}
-        />
+    <div className="mx-8">
+      <KeyMetrics
+        {...{
+          topics,
+          sectors,
+          regions,
+          counties,
+          cities,
+          pests,
+          sources,
+          swots,
+          swotsName,
+          data,
+          dataForFilter,
+        }}
+        setData={setData}
+      />
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-1 py-4">
         <BarChart
           end_years={end_years}
           data={data}

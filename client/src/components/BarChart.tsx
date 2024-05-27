@@ -55,6 +55,7 @@ export default function BarChart({
     labels: labels,
     datasets: [
       {
+        indexAxis: "x",
         label: "Users Gained",
         data: data.map((data) => data.intensity),
         backgroundColor: dynamicColors,

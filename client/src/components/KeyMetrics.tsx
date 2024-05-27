@@ -77,7 +77,7 @@ export default function KeyMetrics({
   };
 
   return (
-    <Card>
+    <Card className=" mb-8">
       <CardHeader>
         <CardTitle className="text-4xl font-light">Key Metrics</CardTitle>
       </CardHeader>

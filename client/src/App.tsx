@@ -29,7 +29,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="max-w-screen-2xl mx-auto py-[5vmin] min-h-screen">
+    <div className="max-w-screen-2xl mx-auto py-[5vmin] min-h-screen ">
       <h1 className="text-5xl font-medium text-center mb-10">
         Data Visualization Dashboard
       </h1>
@@ -47,7 +47,7 @@ export default function App() {
           dataForFilter={dataForFilter}
         />
       )}
-      <Button className=" bg-[#0077b6]" onClick={() => setData(dataForFilter)}>
+      <Button className="bg-blue-500" onClick={() => setData(dataForFilter)}>
         Reset
       </Button>
     </div>
