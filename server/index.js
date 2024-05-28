@@ -38,7 +38,7 @@ mongoose
     console.log(err);
   });
 
-app.get("/data", async (req, res) => {
+app.get("/", async (req, res) => {
   const data = await dataModel.find({});
   console.log(data);
   res.status(200).json(data);
