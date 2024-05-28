@@ -47,9 +47,18 @@ export default function App() {
           dataForFilter={dataForFilter}
         />
       )}
-      <Button className="bg-blue-500" onClick={() => setData(dataForFilter)}>
-        Reset
-      </Button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "2rem",
+        }}
+      >
+        <Button className="bg-blue-500" onClick={() => location.reload()}>
+          Reset
+        </Button>
+      </div>
     </div>
   );
 }

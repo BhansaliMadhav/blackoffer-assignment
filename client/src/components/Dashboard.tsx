@@ -90,6 +90,33 @@ export default function Dashboard({
   return (
     <div className="mx-8">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 py-4">
+        <BarChart
+          end_years={end_years}
+          data={data}
+          setData={setData}
+          dataForFilter={dataForFilter}
+        />
+        <DataTable data={data} />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "2rem",
+        }}
+        className="grid grid-cols-1 gap-8 md:grid-cols-1 py-4"
+      >
+        <GeographicalDistribution data={data} />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "2rem",
+        }}
+      >
         <KeyMetrics
           {...{
             topics,
@@ -106,14 +133,6 @@ export default function Dashboard({
           }}
           setData={setData}
         />
-        <BarChart
-          end_years={end_years}
-          data={data}
-          setData={setData}
-          dataForFilter={dataForFilter}
-        />
-        <DataTable data={data} />
-        <GeographicalDistribution data={data} />
       </div>
     </div>
   );

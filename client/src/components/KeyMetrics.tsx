@@ -77,7 +77,7 @@ export default function KeyMetrics({
   };
 
   return (
-    <Card className=" mb-8">
+    <Card style={{ width: "60%" }}>
       <CardHeader>
         <CardTitle className="text-4xl font-light">Key Metrics</CardTitle>
       </CardHeader>

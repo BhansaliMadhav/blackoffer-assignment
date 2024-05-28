@@ -72,7 +72,7 @@ export default function GeographicalDistribution({
   };
 
   return (
-    <Card>
+    <Card style={{ width: "50%" }}>
       <CardHeader>
         <CardTitle className="text-xl font-semibold">
           Geographical Distribution
