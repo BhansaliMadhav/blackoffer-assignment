@@ -1,7 +1,9 @@
 import { DataPoint } from "@/lib/type";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Doughnut } from "react-chartjs-2"; // Import Doughnut from react-chartjs-2
+import { Chart, ArcElement, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
 
+Chart.register({ ArcElement, Legend });
 export default function GeographicalDistribution({
   data,
 }: {
@@ -47,13 +49,12 @@ export default function GeographicalDistribution({
     return intensityB - intensityA; // Sort by summed intensity value in descending order
   });
 
-  const dynamicColors = Array.from(
-    { length: sortedCountries.length },
-    (_, index) => {
-      const hue = (index * (360 / sortedCountries.length)) % 360;
-      return `hsl(${hue}, 70%, 50%)`;
-    }
-  );
+  const numCountries = sortedCountries.length;
+
+  const dynamicColors = Array.from({ length: numCountries }, (_, index) => {
+    const lightness = (index + 1) / (numCountries + 2); // Adjust range for more blue shades
+    return `hsl(201, ${60 + index * 5}%, ${36 + lightness * 60}%)`; // Increase saturation slightly
+  });
 
   const pieData = {
     labels: sortedCountries,
@@ -62,10 +63,10 @@ export default function GeographicalDistribution({
         label: "Users Gained",
         data: sortedCountries.map((country) => countryMap.get(country)),
         backgroundColor: dynamicColors,
-        hoverBackgroundColor: dynamicColors.map(
-          (color) => color.replace(/0.5/, "0.7") // Slightly darken hover colors
+        hoverBackgroundColor: dynamicColors.map((color) =>
+          color.replace(/0.5/, "0.7")
         ),
-        borderWidth: 0, // Remove border for cleaner pie chart look
+        borderWidth: 1,
       },
     ],
   };

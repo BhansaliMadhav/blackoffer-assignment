@@ -89,23 +89,23 @@ export default function Dashboard({
 
   return (
     <div className="mx-8">
-      <KeyMetrics
-        {...{
-          topics,
-          sectors,
-          regions,
-          counties,
-          cities,
-          pests,
-          sources,
-          swots,
-          swotsName,
-          data,
-          dataForFilter,
-        }}
-        setData={setData}
-      />
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-1 py-4">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 py-4">
+        <KeyMetrics
+          {...{
+            topics,
+            sectors,
+            regions,
+            counties,
+            cities,
+            pests,
+            sources,
+            swots,
+            swotsName,
+            data,
+            dataForFilter,
+          }}
+          setData={setData}
+        />
         <BarChart
           end_years={end_years}
           data={data}
